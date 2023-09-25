@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Dom Practice</title>
+    </head>
+
+    <body>
+        <h2>Problems</h2>
+
+        <button id="butn1">show problems set 1</button>
+        <button id="butn2">show problems set 2</button>
+        <button id="butn3">show problems set 3</button>
+        <br><br>
+
+        <table id="problem-table" cellpadding="20px"></table>
+        
+        <button id="clear">Clear</button>
+            
+        <script>
+
+            const problemArray1 = [{
+            num: "problem no. 1",
+            title: "Title of Problem1",
+            difficulty: "difficulty of prblem1"
+            }, {
+            num: "problem no. 4",
+            title: "Title of Problem4",
+            difficulty: "difficulty of prblem4"
+            }, {
+            num: "problem no. 5",
+            title: "Title of Problem5",
+            difficulty: "difficulty of prblem5"
+            }]
+
+            const problemArray2 = [{
+            num: "problem no. 2",
+            title: "Title of Problem2",
+            difficulty: "difficulty of prblem2"
+            }, {
+            num: "problem no. 6",
+            title: "Title of Problem46",
+            difficulty: "difficulty of prblem6"
+            }, {
+            num: "problem no. 8",
+            title: "Title of Problem8",
+            difficulty: "difficulty of prblem8"
+            }]
+
+            const problemArray3 = [{
+            num: "problem no. 3",
+            title: "Title of Problem3",
+            difficulty: "difficulty of prblem3"
+            }, {
+            num: "problem no. 7",
+            title: "Title of Problem7",
+            difficulty: "difficulty of prblem7"
+            }, {
+            num: "problem no. 9",
+            title: "Title of Problem9",
+            difficulty: "difficulty of prblem59"
+            }]
+
+        </script>
+        
+        <script>
+            const button1 = document.getElementById("butn1")
+            const button2 = document.getElementById("butn2")
+            const button3 = document.getElementById("butn3")
+            const clearButton = document.getElementById("clear")
+
+            button1.addEventListener("click", e => {
+                drawTable(problemArray1);
+            })
+            button2.addEventListener("click", e => {
+                drawTable(problemArray2);
+            })
+            button3.addEventListener("click", e => {
+                drawTable(problemArray3);
+            })
+
+            clearButton.addEventListener("click", e => {
+                const problemTable = document.getElementById("problem-table")
+                problemTable.innerHTML = "";
+            })
+            
+
+            function drawTable(problemArrayArg)
+            {
+                const problemTable = document.getElementById("problem-table")
+                problemTable.innerHTML = "";
+                
+                for(let i=0; i < problemArrayArg.length; i++)
+                {
+                    const problem = document.createElement("tr");
+
+                    const prblemNum = document.createElement("td");
+                    const prblemTitle = document.createElement("td");
+                    const prblemDiffi = document.createElement("td");
+
+                    prblemNum.innerHTML = problemArrayArg[i].num;
+                    prblemTitle.innerHTML = problemArrayArg[i].title;
+                    prblemDiffi.innerHTML = problemArrayArg[i].difficulty;
+
+                    problem.appendChild(prblemNum);
+                    problem.appendChild(prblemTitle);
+                    problem.appendChild(prblemDiffi);
+
+                    problemTable.appendChild(problem);
+                }
+            }
+        </script>
+    </body>
+
+</html>
+        
